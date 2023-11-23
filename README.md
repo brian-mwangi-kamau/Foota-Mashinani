@@ -38,6 +38,8 @@ __Foota Mashinani__ is designed for grassroots football clubs and leagues in Ken
 
 __Foota Mashinani__ is here to help grassroots football thrive in Kenya. The developer believes in the power of community and technology to make a positive impact in the world of sports.
 
+Access the API by visiting [this URL](https://foota.pythonanywhere.com), create an account, and get a free API key for consumption.
+
 
 # License
 ## GNU General Public License (GPL)
