@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <title>Documentation</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-GL/ZLcybdu9O0U9Z+dbD6wRQOu6b9L+X43eEjzE0RaE=" crossorigin="anonymous" />
+   </head>
+   <body>
+      <!-- The navigation bar -->
+      <header>
+         <div class="header-content">
+             <img src="{% static 'img/foota-1.png' %}" alt="Logo" class="logo">
+             <nav class="navbar">
+                 <ul>
+                     <li>
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                     </li>                  
+                     <li>
+                        <a class="nav-link" href="" target="_blank">Contribute</a>
+                     </li>
+                     <li>
+                        <a class="nav-link" href="https://linktr.ee/briankamau" target="_blank">Get help</a>
+                     </li>
+                 </ul>
+             </nav>
+         </div>
+      </header>
+     
+      <div class="container">
+         <div class="title">
+            <h2>Foota Mashinani API</h2>
+            <hr style="width: 80%;">
+         </div>
+
+         <div class="content">
+            <h3 class="heading">Product concept</h3>
+            <p>Make our Grassroots Football API, your go-to source for comprehensive data on grassroots football in Kenya! 
+               Dive into the heart of the game by accessing a wealth of information, including club details, player profiles, 
+               league standings, and match fixtures. Our API empowers you with JSON-formatted data, meticulously gathered from
+               various sources, providing a reliable and up-to-date overview of the vibrant grassroots football landscape in Kenya. 
+               Whether you're a developer, football enthusiast, or league administrator, our API opens the door to a rich tapestry of football data, 
+               facilitating seamless integration and exploration of the dynamic world of grassroots football in Kenya.</p>
+         </div>
+
+         <div class="endpoints">
+            <h3 class="heading">Our publicly accessible API endpoints</h3>
+            <div class="url-items">
+               <div class="item">
+                  <pre class="link">
+                     <code>
+                        <a href="https://foota.pythonanywhere.com/api/v1/clubs/">https://foota.pythonanywhere.com/api/v1/clubs/</a>
+                        <a href="https://foota.pythonanywhere.com/api/v1/players/">https://foota.pythonanywhere.com/api/v1/players/</a>
+                        <a href="https://foota.pythonanywhere.com/api/v1/coaches/">https://foota.pythonanywhere.com/api/v1/coaches/</a>
+                        <a href="https://foota.pythonanywhere.com/api/v1/results/">https://foota.pythonanywhere.com/api/v1/results/</a>
+                        <a href="https://foota.pythonanywhere.com/api/v1/fixtures/">https://foota.pythonanywhere.com/api/v1/fixtures/</a>
+                        <a href="https://foota.pythonanywhere.com/api/v1/league/">https://foota.pythonanywhere.com/api/v1/league/</a>
+                     </code>
+                  </pre>
+               </div>
+            </div>
+
+         <div class="tutorial">
+            <h3 class="heading">How to make an API call</h3>
+            <p class="stack">In Django</p>
+            <pre class="code-snippet">
+               <code>
+                  # Python
+
+
+                  import requests
+
+                  url = 'https://foota.pythonanywhere.com/api/v1/the-endpoint/'
+                  api_key = 'your_api_key'
+                  
+                  headers = {
+                     'X-API-KEY': api_key,
+                  }
+                  
+                  response = requests.get(url, headers=headers)
+                  
+                  if response.status_code == 200:
+                     data = response.json()
+                     print(data)
+                  else:
+                     print(f"Error: {response.status_code}")                      
+               </code>
+            </pre>
+
+            <!-- <p class="stack">In JavaScript</p>
+            <pre class="code-snippet">
+               <code>
+                  # JavaScript
+
+
+                  const url = 'https://foota.pythonanywhere.com/api/v1/the-endpoint/';
+                  const apiKey = 'your_api_key';
+
+                  const headers = {
+                  'X-API-KEY': apiKey,
+                  };
+
+                  fetch(url, { headers })
+                  .then(response => {
+                     if (!response.ok) {
+                        throw new Error(`Error: ${response.status}`);
+                     }
+                     return response.json();
+                  })
+                  .then(data => {
+                     console.log(data);
+                  })
+                  .catch(error => {
+                     console.error(error);
+                  });
+               </code>
+            </pre> -->
+         </div>
+
+         <div class="response">
+            <h3 class="heading">API response</h3>
+            <p class="stack">This API returns responses in JSON format.</p>
+            <pre class="code-snippet">
+               <code>
+                  "https://foota.pythonanywhere.com/api/v1/clubs/"   returns:
+
+
+                  [
+                     {
+                        "name": "Kiambaa United",
+                        "founded": "2020",
+                        "coach": "Kamau Karanja",
+                        "players": [
+                              {
+                                 "first_name": "Harry",
+                                 "last_name": "Mahugu",
+                                 "field_name": "Harry M.",
+                                 "position": "Defender",
+                                 "club": "Kiambaa United"
+                              },
+                              {
+                                 "first_name": "Anthony",
+                                 "last_name": "Odh'iambo",
+                                 "field_name": "Odh'is",
+                                 "position": "Striker",
+                                 "club": "Kiambaa United"
+                              }
+                        ]
+                     }
+                  ]
+               </code>
+            </pre>
+         </div>
+         <hr style="width: 80%; margin-top: 90px;">
+
+         <div class="ending">
+            <h3>Want to use this API?</h3>
+            <p><a href="{% url 'signup' %}">Sign up</a> or <a href="{% url 'login' %}">log in</a> to get a free API key and start building!</p>
+         </div>
+      </div>
+   </body>
+</html>

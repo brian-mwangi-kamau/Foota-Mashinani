@@ -1,0 +1,4 @@
+.env
+my_env/
+api_server/migrations/
+api_service/migrations/

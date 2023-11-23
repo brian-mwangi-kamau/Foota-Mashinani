@@ -1,0 +1,308 @@
+/* * {
+    box-sizing: border-box;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+
+
+    color: #2e2c2c;
+    font-size: 14px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.80857;
+    font-weight: normal;
+}
+
+
+header {
+    background: rgb(3, 113, 146);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    /* max-width: 100px; */
+}
+
+header .navbar ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+}
+
+header .navbar li {
+    margin: 0;
+}
+
+header .navbar li a {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    padding: 30px;
+}
+
+header .navbar li a:hover {
+    color: yellow;
+}
+
+
+.container {
+    margin-top: 100px;
+    padding: 25px;
+}
+
+.container .title h2 {
+    margin-top: -10px;
+    font-size: 20px;
+
+    margin-left: 250px;
+}
+
+.container .content .heading {
+    margin-top: 60px;
+    margin-bottom: 1px;
+    font-size: 19px;
+
+    margin-left: 250px;
+}
+
+.container .content p {
+    margin-top: 1px;
+    margin-bottom: 10px;
+    width: 70%;
+    font-size: 18px;
+
+    margin-left: 250px;
+}
+
+.container .endpoints .heading {
+    margin-top: 60px;
+    margin-bottom: 1px;
+    font-size: 19px;
+
+    margin-left: 250px;
+}
+
+.container .tutorial .heading {
+    margin-top: 60px;
+    margin-bottom: 1px;
+    font-size: 19px;
+
+    margin-left: 250px;
+}
+
+.container .tutorial .stack {
+    font-size: 17px;
+    margin-left: 250px;
+}
+
+
+.item .link {
+    width: 70%;
+    background-color: #ccc;
+    padding: 1px;
+    text-align: start;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    white-space: pre-wrap;
+
+    margin-left: 250px;
+}
+
+
+.item .link code {
+    font-family: 'Courier New', monospace;
+    color: #333;
+}
+
+.item .link code a {
+    font-family: 'Courier New', monospace;
+    text-decoration: none;
+    color: #333;
+}
+
+.item .link code a:hover {
+    font-family: 'Courier New', monospace;
+    text-decoration: underline;
+    color: #965555;
+}
+
+
+
+.code-snippet {
+    width: 70%;
+    background-color: #ccc;
+    padding: 5px;
+    text-align: start;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    white-space: pre-wrap;
+
+    margin-left: 250px;
+    margin-bottom: 20px;
+}
+
+.code-snippet code {
+    font-family: 'Courier New', monospace;
+    color: #333;
+}
+
+
+.container .response .heading {
+    margin-top: 60px;
+    margin-bottom: 1px;
+    font-size: 19px;
+
+    margin-left: 250px;
+}
+
+.container .response .stack {
+    font-size: 17px;
+    margin-left: 250px;
+}
+
+
+
+
+.container .ending h3 {
+    margin-top: 60px;
+    margin-bottom: 1px;
+    font-size: 20px;
+    text-align: center;
+
+    /* margin-left: 250px; */
+}
+
+.container .ending p {
+    font-size: 19px;
+    margin-bottom: 100px;
+    text-align: center;
+    /* margin-left: 250px; */
+}
+
+.container .ending p a {
+    color: black;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 100px;
+    text-align: center;
+    /* margin-left: 250px; */
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 100px) and (max-width: 900px) {
+    body {
+        color: #2e2c2c;
+        font-size: 14px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: normal;
+        margin: 0;
+    }
+    
+    
+    header {
+        background: rgb(3, 113, 146);
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    
+    header .navbar ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        padding: 0;
+    }
+
+    header .navbar li {
+        margin: 0;
+    }
+    
+    header .navbar li a {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        color: white;
+        padding: 30px;
+    }
+    
+    header .navbar li a:hover {
+        color: yellow;
+    }
+    
+    
+    .container {
+        margin-top: 100px;
+        text-align: center;
+        margin: 0;
+    }
+    
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .copyright {
+        margin-top: 90px;
+        padding-bottom: 25px;
+        background: rgb(3, 113, 146);
+    }
+    
+    .copyright p {
+        color: #fff;
+        font-size: 17 px;
+        line-height: 22px;
+        text-align: center;
+        padding-top: 25px;
+        font-weight: 400;
+        font-weight: normal;
+    }
+    
+    .copyright a {
+        color: #fff;
+    }
+    
+    .copyright a:hover {
+        color: #3e0bce;
+    }
+}

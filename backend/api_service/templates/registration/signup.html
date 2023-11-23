@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>SignUp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>SignUp Form</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="#" method="post">
+                    {% csrf_token %}
+					<div class="form-field">
+                        <label for="id_email"></label>
+                        <div class="field">
+                            <input class="text email" type="email" name="email" placeholder="Email" required="">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="id_first_name"></label>
+                        <div class="field">
+                            <input class="text" type="text" name="first_name" placeholder="First name" required="">
+                        </div>
+                    </div><br>
+                    <div class="form-field">
+                        <label for="id_last_name"></label>
+                        <div class="field">
+                            <input class="text" type="text" name="last_name" placeholder="Last name" required="">
+                        </div>
+                    </div><br>
+                    <div class="form-field">
+                        <label for="id_password"></label>
+                        <div class="field">
+                            <input class="text" type="password" name="password" placeholder="Password" required="">
+                        </div>
+                    </div>
+                    <div class="wthree-text">
+                        <label class="anim">
+                            <input type="checkbox" class="checkbox" required="">
+                            <span>I Agree To The Terms & Conditions</span>
+                        </label>
+                        <div class="clear"> </div>
+                    </div>
+                    <input type="submit" value="SIGN UP">
+				</form>
+				<p>Already registered? <a href="{% url 'login' %}"> Login here</a></p>
+			</div>
+		</div>
+		<div class="colorlibcopy-agile">
+            <p>© <span id="current-year"></span> All rights reserved | Design inspired by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+        </div>
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+    <script>
+        var currentYear = new Date().getFullYear();
+        document.getElementById("current-year").textContent = currentYear;
+    </script>
+</body>
+</html>

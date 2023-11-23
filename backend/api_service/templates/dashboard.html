@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <title>Dashboard</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   </head>
+   <body>
+      <!-- The navigation bar -->
+      <header>
+         <div class="header-content">
+             <img src="{% static 'img/foota-1.png' %}" alt="Logo" class="logo">
+             <nav class="navbar">
+                 <ul>
+                     <li>
+                        <a class="nav-link" href="{% url 'homepage' %}">Documentation</a>
+                     </li>
+                     <li>
+                        <a class="nav-link" href="https://linktr.ee/briankamau" target="_blank">Get help</a>
+                     </li>
+                 </ul>
+             </nav>
+         </div>
+      </header>
+
+      <div class="container">
+         <div class="user-info">
+            <p>{{ first_name }} {{ last_name }}</p>
+            <p>Email Address: {{ email }} | <a href="" style="text-decoration: underline !important; color: blue;">change</a></p>
+         </div>
+         <div class="user-credentials">
+            <p>API Key: <span id="apiKey">{{ api_key }}</span> <i class="copy-icon fas fa-copy" onclick="copyToClipboard()"></i></p>
+            <p>API Token(s): <span>none</span> <i class="copy-icon fas fa-copy"></i></p>
+            <p>API Key Status: {{ api_key_status }}</p>
+        </div>
+      </div>
+
+      <div class="actions">
+         <div class="log-out">
+            <button type="button" id="logout-button" class="btn-submit">Log out</button>
+         </div>
+         <div class="delete-account">
+            <button type="button" id="delete-acount" class="btn-delete">Delete account</button>
+         </div>
+      </div>
+
+      <footer>
+         <div class="footer">
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>© <span id="current-year"></span> | All Rights Reserved.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <script>
+         function copyToClipboard() {
+             var apiKeyElement = document.getElementById('apiKey');
+             var textArea = document.createElement('textarea');
+             textArea.value = apiKeyElement.textContent;
+             document.body.appendChild(textArea);
+             textArea.select();
+             document.execCommand('copy');
+             document.body.removeChild(textArea);
+
+             alert('API Key copied to clipboard!');
+         }
+      </script>
+
+      <script>
+         document.addEventListener('DOMContentLoaded', function () {
+            const logoutButton = document.getElementById('logout-button');
+
+            if (logoutButton) {
+               logoutButton.addEventListener('click', function () {
+                     fetch('/logout/', {
+                        method: 'POST',
+                        headers: {
+                           'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                           'Content-Type': 'application/json',
+                        },
+                     })
+                        .then(response => {
+                           if (response.ok) {
+                                 // If the logout was successful, redirect to the login page
+                                 window.location.href = '/login/';
+                           } else {
+                                 // Handle any errors here
+                                 console.error('Logout failed');
+                           }
+                        })
+                        .catch(error => {
+                           console.error('Error:', error);
+                        });
+               });
+            }
+
+            // Function to get the CSRF token from cookies
+            function getCookie(name) {
+               let cookieValue = null;
+               if (document.cookie && document.cookie !== '') {
+                     const cookies = document.cookie.split(';');
+                     for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Check if this cookie name begins with the required name
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                           break;
+                        }
+                     }
+               }
+               return cookieValue;
+            }
+         });
+      </script>
+   
+      <script>
+         var currentYear = new Date().getFullYear();
+         document.getElementById("current-year").textContent = currentYear;
+      </script>
+   </body>
+</html>
